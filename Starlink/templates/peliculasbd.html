@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peliculas</title>
+    <style> 
+        p, ul, li, a{
+           font-size: 30px; 
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <ul>
+            {% for pelicula in pelisbd %}
+            <li>
+                la pelicula <b>{{pelicula.title}}</b> es del año: <b>{{pelicula.year}}</b> -
+                <a href = "{% url 'borrarbd' id=pelicula.id %}">borrar</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href = "{% url 'agregarbd' %}">agregar pelis</a>
+    </p>
+</body>
+</html>
